@@ -19,7 +19,7 @@ export const createMedicalRecord = async (req: AuthRequest, res: Response) => {
         },
       });
 
-      // If linked to an appointment, mark it as completed
+      // ถ้ามีการนัดหมาย ให้เปลี่ยนสถานะเป็นเสร็จสิ้น
       if (appointmentId) {
         await tx.appointment.update({
           where: { id: appointmentId },
