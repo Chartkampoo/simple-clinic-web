@@ -45,7 +45,7 @@ document.getElementById('register-form')?.addEventListener('submit', async (e) =
         await api.auth.register({ fullName, username, email, password, role });
         
         showToast('ลงทะเบียนสำเร็จ! คุณสามารถเข้าสู่ระบบได้แล้ว', 'success');
-        toggleAuth(); // Switch to login view
+        toggleAuth(); // สลับไปหน้าเข้าสู่ระบบ
         
     } catch (error) {
         showToast(error.message, 'error');
@@ -54,7 +54,7 @@ document.getElementById('register-form')?.addEventListener('submit', async (e) =
     }
 });
 
-// Check if already logged in
+// ตรวจสอบว่าเข้าสู่ระบบแล้ว
 window.addEventListener('load', () => {
     if (localStorage.getItem('token') && (window.location.pathname.includes('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('frontend/'))) {
         const user = JSON.parse(localStorage.getItem('user'));
