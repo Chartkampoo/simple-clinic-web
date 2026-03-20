@@ -11,7 +11,7 @@ export const register = async (req: Request, res: Response) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     
     const result = await prisma.$transaction(async (tx) => {
-      // Ensure email/phone are null if empty string is provided to avoid unique constraint issues
+      // ตรวจสอบให้แน่ใจว่าอีเมล/หมายเลขโทรศัพท์เป็นค่าว่างหากมีการระบุสตริงว่าง เพื่อหลีกเลี่ยงปัญหาข้อจำกัดที่ไม่ซ้ำกัน
       const userData: any = {
         username,
         password: hashedPassword,
