@@ -21,7 +21,7 @@ const api = {
         try {
             const response = await fetch(`${API_BASE_URL}${endpoint}`, config);
             
-            // Try to get response data, but handle non-JSON responses gracefully
+            // ลองรับข้อมูลการตอบกลับ แต่จัดการกรณีที่ไม่ใช่ JSON อย่างเหมาะสม
             let data;
             const contentType = response.headers.get('content-type');
             if (contentType && contentType.includes('application/json')) {
@@ -31,14 +31,14 @@ const api = {
             }
 
             if (!response.ok) {
-                // Return a more user-friendly error if possible
+                // แสดงข้อความที่เข้าใจง่ายขึ้นหากเป็นไปได้
                 const errorMsg = data.message || data || 'ขออภัย เกิดข้อผิดพลาดในการเชื่อมต่อเซิร์ฟเวอร์';
                 throw new Error(errorMsg);
             }
             return data;
         } catch (error) {
             console.error('API Error:', error);
-            // If it's already an error object with a message, keep it, otherwise translate to Thai
+            // ถ้าเป็นข้อผิดพลาดในการเชื่อมต่อ ให้แสดงข้อความที่เข้าใจง่ายขึ้น
             if (error.message && error.message.includes('fetch')) {
                 throw new Error('ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้ กรุณาลองใหม่อีกครั้ง');
             }
