@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClinicPro | ระบบจัดการคลินิกสมัยใหม่</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=K2D:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'K2D', sans-serif;
+            background: radial-gradient(circle at top right, #f0f9ff, #e0f2fe, #ffffff);
+            min-height: 100vh;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center p-4">
+    <div class="max-w-6xl w-full grid lg:grid-cols-2 gap-8 items-center">
+        <!-- Brand Section -->
+        <div class="hidden lg:block space-y-6">
+            <div class="flex items-center gap-2 text-blue-600">
+                <i data-lucide="cross" class="w-10 h-10"></i>
+                <span class="text-3xl font-bold tracking-tight">ClinicPro</span>
+            </div>
+            <h1 class="text-5xl font-bold text-slate-900 leading-tight">
+                ดูแลสุขภาพด้วย <br>
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">เทคโนโลยีที่เหนือกว่า</span>
+            </h1>
+            <p class="text-lg text-slate-600 max-w-md">
+                จัดการเวิร์กโฟลว์ของคลินิกได้อย่างสมบูรณ์แบบด้วยระบบจัดการแบบครบวงจร ปลอดภัย มีประสิทธิภาพ
+                และเน้นผู้ป่วยเป็นศูนย์กลาง
+            </p>
+            <div class="flex gap-4 p-6 glass rounded-2xl w-fit animate-float">
+                <div class="flex -space-x-3">
+                    <img src="https://ui-avatars.com/api/?name=Dr+John&background=0D8ABC&color=fff"
+                        class="w-12 h-12 rounded-full border-4 border-white">
+                    <img src="https://ui-avatars.com/api/?name=Staff+Maria&background=10B981&color=fff"
+                        class="w-12 h-12 rounded-full border-4 border-white">
+                    <img src="https://ui-avatars.com/api/?name=Patient+Alex&background=F59E0B&color=fff"
+                        class="w-12 h-12 rounded-full border-4 border-white">
+                </div>
+                <div>
+                    <p class="font-semibold text-slate-900">การดูแลที่เชื่อมถึงกัน</p>
+                    <p class="text-sm text-slate-500">ได้รับความไว้วางใจจากกว่า 100 คลินิก</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Auth Form -->
+        <div class="glass p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
+            <div id="login-container" class="space-y-6">
+                <div class="space-y-2">
+                    <h2 class="text-3xl font-bold text-slate-900">เข้าสู่ระบบ</h2>
+                    <p class="text-slate-500">ยินดีต้อนรับกลับมา! กรุณากรอกข้อมูลของคุณ</p>
+                </div>
+
+                <form id="login-form" class="space-y-4">
+                    <div class="space-y-1">
+                        <label class="text-sm font-medium text-slate-700">ชื่อผู้ใช้งาน</label>
+                        <div class="relative">
+                            <i data-lucide="user"
+                                class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
+                            <input type="text" id="login-username" required
+                                class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                                placeholder="กรอกชื่อผู้ใช้งาน">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-sm font-medium text-slate-700">รหัสผ่าน</label>
+                        <div class="relative">
+                            <i data-lucide="lock"
+                                class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
+                            <input type="password" id="login-password" required
+                                class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                                placeholder="••••••••">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full btn-primary text-white py-3 rounded-xl font-semibold text-lg">
+                        เข้าสู่ระบบ
+                    </button>
+                </form>
+
+                <p class="text-center text-slate-600">
+                    ยังไม่มีบัญชี?
+                    <button onclick="toggleAuth()"
+                        class="text-blue-600 font-semibold hover:underline">ลงทะเบียนตอนนี้</button>
+                </p>
+            </div>
+
+            <div id="register-container" class="space-y-6 hidden">
+                <div class="space-y-2">
+                    <h2 class="text-3xl font-bold text-slate-900">สร้างบัญชีใหม่</h2>
+                    <p class="text-slate-500">สมัครสมาชิกเพื่อเข้าใช้งานระบบจัดการคลินิก</p>
+                </div>
+
+                <form id="register-form" class="space-y-3">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-700">ชื่อ-นามสกุล</label>
+                            <input type="text" id="reg-name" required
+                                class="w-full px-4 py-2 rounded-lg border border-slate-200 outline-none"
+                                placeholder="สมชาย ใจดี">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-700">ชื่อผู้ใช้งาน</label>
+                            <input type="text" id="reg-username" required
+                                class="w-full px-4 py-2 rounded-lg border border-slate-200 outline-none"
+                                placeholder="somchai">
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-sm font-medium text-slate-700">อีเมล (ไม่บังคับ)</label>
+                        <input type="email" id="reg-email"
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 outline-none"
+                            placeholder="somchai@example.com">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-sm font-medium text-slate-700">รหัสผ่าน</label>
+                        <input type="password" id="reg-password" required
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 outline-none"
+                            placeholder="••••••••">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-sm font-medium text-slate-700">สิทธิ์การเข้าใช้งาน</label>
+                        <select id="reg-role"
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 outline-none bg-white">
+                            <option value="PATIENT">ผู้ป่วย</option>
+                            <option value="DOCTOR">แพทย์</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full btn-primary text-white py-3 rounded-xl font-semibold mt-4">
+                        ยืนยันการลงทะเบียน
+                    </button>
+                </form>
+
+                <p class="text-center text-slate-600">
+                    มีบัญชีอยู่แล้ว?
+                    <button onclick="toggleAuth()"
+                        class="text-blue-600 font-semibold hover:underline">เข้าสู่ระบบ</button>
+                </p>
+            </div>
+
+            <!-- Notification Toast -->
+            <div id="toast"
+                class="fixed top-4 right-4 transform translate-x-full transition-all duration-300 z-50 p-4 rounded-xl shadow-lg flex items-center gap-3">
+                <i id="toast-icon"></i>
+                <span id="toast-msg"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        lucide.createIcons();
+
+        function toggleAuth() {
+            const login = document.getElementById('login-container');
+            const register = document.getElementById('register-container');
+            login.classList.toggle('hidden');
+            register.classList.toggle('hidden');
+            lucide.createIcons();
+        }
+
+        function showToast(msg, type = 'success') {
+            const toast = document.getElementById('toast');
+            const icon = document.getElementById('toast-icon');
+            const msgEl = document.getElementById('toast-msg');
+
+            toast.className = `fixed top-4 right-4 transform transition-all duration-300 z-50 p-4 rounded-xl shadow-lg flex items-center gap-3 ${type === 'success' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-rose-50 text-rose-700 border border-rose-200'
+                }`;
+
+            icon.setAttribute('data-lucide', type === 'success' ? 'check-circle' : 'alert-circle');
+            msgEl.textContent = msg;
+
+            lucide.createIcons();
+            toast.classList.remove('translate-x-full');
+
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>
