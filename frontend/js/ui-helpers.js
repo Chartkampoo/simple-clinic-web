@@ -3,7 +3,7 @@ function showModal(contentHtml) {
     if (!container) {
         container = document.createElement('div');
         container.id = 'modal-container';
-        // Remove heavy blur and use simple dark background
+        // การลบพื้นหลังที่เบลอหนักๆ และใช้พื้นหลังสีเข้มแบบเรียบง่าย
         container.className = 'fixed inset-0 bg-slate-900/60 z-50 hidden flex items-center justify-center p-4 transition-opacity duration-200';
         container.innerHTML = `<div class="bg-white rounded-3xl shadow-xl w-full max-w-lg overflow-hidden transform transition-all duration-200 ease-out scale-95 opacity-0" id="modal-content"></div>`;
         document.body.appendChild(container);
@@ -13,7 +13,7 @@ function showModal(contentHtml) {
     content.innerHTML = contentHtml;
     container.classList.remove('hidden');
     
-    // Quick, lightweight entrance
+    // การแสดงผลแบบรวดเร็วและไม่หนักเครื่อง
     setTimeout(() => {
         content.classList.remove('scale-95', 'opacity-0');
         content.classList.add('scale-100', 'opacity-100');
